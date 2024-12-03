@@ -274,9 +274,9 @@
 							"    pm.response.to.have.status(400);",
 							"});",
 							"",
-							"pm.test(\"Сообщение об ошибке содержит 'Имя сотрудника не может быть пустым'\", function () {",
+							"pm.test(\"Сообщение об ошибке содержит 'Имя не может содержать пробелов'\", function () {",
 							"    var jsonData = pm.response.json();",
-							"    pm.expect(jsonData.name).to.include(\"Имя сотрудника не может быть пустым\");",
+							"    pm.expect(jsonData.name).to.include(\"Имя не может содержать пробелов\");",
 							"});",
 							""
 						],
