@@ -1,0 +1,29 @@
+server:
+  port: 8082
+
+spring:
+  application:
+    name: file-export
+  datasource:
+    url: jdbc:postgresql://localhost:5432/staff
+    username: postgres
+    password: postgres
+    driver-class-name: org.postgresql.Driver
+
+  task:
+    execution:
+      pool:
+        core-size: 2
+        max-size: 5
+        queue-capacity: 500
+      thread-name-prefix: "FileExport-"
+
+file-export:
+  folder-name: myExports
+  api:
+    employees-url: http://localhost:9090/api/v1/employees
+
+logging:
+  level:
+    root: INFO
+    org.springframework: DEBUG
