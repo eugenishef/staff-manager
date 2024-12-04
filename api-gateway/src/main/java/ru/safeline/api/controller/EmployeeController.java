@@ -1,5 +1,8 @@
 package ru.safeline.api.controller;
 
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.Parameter;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.experimental.FieldDefaults;
@@ -24,12 +27,14 @@ import static ru.safeline.api.constant.SuccessMessages.EMPLOYEE_REMOVED;
 @AllArgsConstructor
 @RequestMapping("/api/v1/employees")
 @FieldDefaults(level = AccessLevel.PRIVATE)
+@Tag(name = "EmployeeController", description = "Содержит все CRUD операции связанные с сотрудниками")
 public class EmployeeController {
     static final String EMPLOYEE_ID = "{id}";
 
     EmployeeService employeeService;
 
     @PostMapping
+    @Operation(summary = "Создание сотрудника", description = "Позволяет создать 1 пользователя")
     public ResponseEntity<EmployeeDto> createEmployee(@Valid @RequestBody EmployeeDto employeeDto) {
         EmployeeDto savedEmployee = employeeService.createEmployee(employeeDto);
 
@@ -37,6 +42,7 @@ public class EmployeeController {
     }
 
     @PostMapping("/array")
+    @Operation(summary = "Создание сотрудников", description = "Позволяет создать пользователей")
     public ResponseEntity<List<EmployeeDto>> createEmployees(@RequestBody List<@Valid EmployeeDto> employees) {
         List<EmployeeDto> savedEmployees = employeeService.createEmployees(employees);
 
@@ -44,6 +50,7 @@ public class EmployeeController {
     }
 
     @GetMapping(EMPLOYEE_ID)
+    @Operation(summary = "Получение сотрудника по id", description = "Позволяет получить информацию о сотруднике")
     public ResponseEntity<EmployeeDto> getEmployeeById(@PathVariable("id") Long employeeId) {
         EmployeeDto foundEmployee = employeeService.getEmployeeById(employeeId);
 
@@ -51,11 +58,16 @@ public class EmployeeController {
     }
 
     @GetMapping
+    @Operation(summary = "Вывод списка сотрудников с фильтрацией", description = "Позволяет печать список пользователей с пагинацией")
     public ResponseEntity<Page<EmployeeDto>> getAllEmployees(
-            @RequestParam(defaultValue = "0") int page,
-            @RequestParam(defaultValue = "10") int size,
-            @RequestParam(defaultValue = "id") String sortBy,
-            @RequestParam(defaultValue = "asc") String sortDir) {
+            @RequestParam(defaultValue = "0")
+            @Parameter(description = "Управление страницами", example = "1") int page,
+            @RequestParam(defaultValue = "10")
+            @Parameter(description = "Количество выводимых пользователей на странице", example = "20") int size,
+            @RequestParam(defaultValue = "id")
+            @Parameter(description = "Параметр для сортировки", example = "id") String sortBy,
+            @RequestParam(defaultValue = "asc")
+            @Parameter(description = "Направление сортировки", example = "asc") String sortDir) {
 
         Pageable pageable = PageRequest.of(
                 page,
@@ -69,6 +81,7 @@ public class EmployeeController {
     }
 
     @PutMapping(EMPLOYEE_ID)
+    @Operation(summary = "Обновление информации о сотруднике", description = "Позволяет обновить сотрудника")
     public ResponseEntity<EmployeeDto> updateEmployee(@PathVariable("id") Long employeeId,
                                                       @Valid @RequestBody EmployeeDto updateEmployee) {
          EmployeeDto employeeDto = employeeService.updateEmployee(employeeId, updateEmployee);
@@ -77,6 +90,7 @@ public class EmployeeController {
     }
 
     @DeleteMapping(EMPLOYEE_ID)
+    @Operation(summary = "Удаление сотрудника", description = "Позволяет удалить сотрудника")
     public ResponseEntity<ApiResponse> deleteEmployee(@PathVariable("id") Long employeeId) {
         employeeService.deleteEmployee(employeeId);
 

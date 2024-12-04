@@ -1,4 +1,4 @@
-package ru.safeline.models;
+package ru.safeline.exporter.model;
 
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;

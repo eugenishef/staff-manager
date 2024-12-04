@@ -1,11 +1,14 @@
 server:
   port: 8082
 
+app:
+  swagger-url: http://localhost:8082
+
 spring:
   application:
     name: file-export
   datasource:
-    url: jdbc:postgresql://localhost:5432/staff
+    url: jdbc:postgresql://db:5432/staff
     username: postgres
     password: postgres
     driver-class-name: org.postgresql.Driver
@@ -21,7 +24,7 @@ spring:
 file-export:
   folder-name: myExports
   api:
-    employees-url: http://localhost:9090/api/v1/employees
+    employees-url: http://api-gateway:9090/api/v1/employees
 
 logging:
   level:

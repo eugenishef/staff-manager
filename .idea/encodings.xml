@@ -4,7 +4,9 @@
     <file url="file://$PROJECT_DIR$/api-gateway/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/common-models/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/file-export/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/springdoc-openapi/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/swagger-config/src/main/java" charset="UTF-8" />
   </component>
 </project>

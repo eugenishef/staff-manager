@@ -1,6 +1,9 @@
 server:
   port: 9090
 
+app:
+  swagger-url: http://localhost:9090
+
 spring:
   jpa:
     hibernate:
@@ -10,7 +13,7 @@ spring:
       hibernate:
         format_sql: true
   datasource:
-    url: jdbc:postgresql://localhost:5432/staff
+    url: jdbc:postgresql://db:5432/staff
     username: postgres
     password: postgres
     driver-class-name: org.postgresql.Driver

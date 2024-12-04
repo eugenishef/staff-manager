@@ -14,7 +14,7 @@ import ru.safeline.exporter.constant.LogMessages;
 import ru.safeline.exporter.constant.UserMessages;
 import ru.safeline.exporter.repository.EmployeeRepository;
 import ru.safeline.exporter.service.FileExportService;
-import ru.safeline.models.Employee;
+import ru.safeline.exporter.model.Employee;
 
 import java.io.File;
 import java.util.List;
@@ -44,6 +44,3 @@ public class FileExportController {
         }
     }
 }
-
-
-

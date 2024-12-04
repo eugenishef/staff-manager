@@ -4,7 +4,7 @@ import lombok.AccessLevel;
 import lombok.Data;
 import lombok.experimental.FieldDefaults;
 import org.springframework.data.domain.Pageable;
-import ru.safeline.models.Employee;
+import ru.safeline.exporter.model.Employee;
 
 import java.util.List;
 
@@ -22,4 +22,3 @@ public class EmployeeResponse {
     int numberOfElements;
     boolean empty;
 }
-

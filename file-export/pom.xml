@@ -13,9 +13,10 @@
     <name>file-export</name>
 
     <properties>
-        <java.version>11</java.version>
         <common.csv.version>1.10.0</common.csv.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <swagger.annotations.version>2.2.25</swagger.annotations.version>
+        <springdoc.openapi.ui.version>1.8.0</springdoc.openapi.ui.version>
     </properties>
 
     <dependencies>
@@ -34,9 +35,14 @@
             <scope>test</scope>
         </dependency>
         <dependency>
-            <groupId>ru.safeline</groupId>
-            <artifactId>common-models</artifactId>
-            <version>${project.version}</version>
+            <groupId>io.swagger.core.v3</groupId>
+            <artifactId>swagger-annotations</artifactId>
+            <version>${swagger.annotations.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springdoc</groupId>
+            <artifactId>springdoc-openapi-ui</artifactId>
+            <version>${springdoc.openapi.ui.version}</version>
         </dependency>
     </dependencies>
 </project>

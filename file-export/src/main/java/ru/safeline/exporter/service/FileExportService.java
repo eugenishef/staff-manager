@@ -10,7 +10,7 @@ import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 import ru.safeline.exporter.constant.UserMessages;
-import ru.safeline.models.Employee;
+import ru.safeline.exporter.model.Employee;
 import ru.safeline.exporter.mapper.EmployeeResponse;
 
 import java.io.File;
