@@ -168,6 +168,31 @@
 			]
 		},
 		{
+			"name": "Экспортер",
+			"item": [
+				{
+					"name": "Выгружаем данные в CSV",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{exporterUrl}}/api/v1/export/employees",
+							"host": [
+								"{{exporterUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"export",
+								"employees"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
 			"name": "Создание сотрудника (позитивный тест)",
 			"event": [
 				{
